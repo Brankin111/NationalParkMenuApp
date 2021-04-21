@@ -21,19 +21,14 @@ namespace NationalParksMenuApp
                 Console.WriteLine("      National Parks Directory\n");
                 Console.WriteLine("  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
                 Console.WriteLine("  Press select an option:\n");
-                Console.WriteLine("  1 - List of national parks.");
-                Console.WriteLine("  2 - Add park to directory.");
-                Console.WriteLine("  3 - Delete park from directory.\n");
-                Console.WriteLine("  Press Q to quit.");
+                Console.WriteLine("  1 - Park list");
+                Console.WriteLine("  2 - Add park");
+                Console.WriteLine("  3 - Quit\n");
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
                 switch (optionSelect.KeyChar)
                 {
-                    case 'q':
-                    case 'Q':
-                        break;
-
                     case '1':
                         break;
 
@@ -44,14 +39,14 @@ namespace NationalParksMenuApp
                         break;
                 }
 
-                //Pressing Q breaks loop and closes program
-                if ((optionSelect.KeyChar == 'q') || (optionSelect.KeyChar == 'Q'))
+                //Pressing 3 breaks loop and closes program
+                if (optionSelect.KeyChar == '3')
                 {
                     loopFlag = false;
                 }
                 else if (optionSelect.KeyChar == '1')
                 {
-                    //Output 1.
+                    //Output 1
                     Console.Clear();
                     Console.WriteLine("  List of National Parks:");
                     Console.WriteLine("  ───────────────────────\n");
@@ -59,23 +54,15 @@ namespace NationalParksMenuApp
                 }
                 else if (optionSelect.KeyChar == '2')
                 {
-                    //Output 2.
+                    //Output 2
                     Console.Clear();
                     Console.WriteLine("  Add National Park to Directory:");
                     Console.WriteLine("  ───────────────────────────────\n");
                     Output2();
                 }
-                else if (optionSelect.KeyChar == '3')
-                {
-                    //Output 3.
-                    Console.Clear();
-                    Console.WriteLine("  Delete National Park from Directory:");
-                    Console.WriteLine("  ────────────────────────────────────\n");
-                    Output3();
-                }
                 else
                 {
-                    //Output 4.
+                    //Output if invalid
                     Console.Clear();
                     Console.WriteLine("  Please select a valid option.");
                 }
@@ -116,12 +103,6 @@ namespace NationalParksMenuApp
                 line = Console.ReadLine();
                 file.WriteLine("  " + line + "\n");
             }
-        }
-
-        private static void Output3()
-        {
-            //Allows user to delete parks.
-            //To be written....
         }
     }
 }
