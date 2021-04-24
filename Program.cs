@@ -28,11 +28,7 @@ namespace NationalParksMenuApp
                 Console.WriteLine("\n\n");
 
                 //Pressing 3 breaks loop and closes program
-                if (optionSelect.KeyChar == '3')
-                {
-                    loopFlag = false;
-                }
-                else if (optionSelect.KeyChar == '1')
+                if (optionSelect.KeyChar == '1')
                 {
                     //Output 1
                     Console.Clear();
@@ -47,6 +43,18 @@ namespace NationalParksMenuApp
                     Console.WriteLine("  Add National Park to Directory:");
                     Console.WriteLine("  ───────────────────────────────\n");
                     Output2();
+                }
+                else if (optionSelect.KeyChar == '3')
+                {
+                    //Output 2
+                    Console.Clear();
+                    Console.WriteLine("  Delete National Park from Directory:");
+                    Console.WriteLine("  ────────────────────────────────────\n");
+                    Output3();
+                }
+                else if (optionSelect.KeyChar == '4')
+                {
+                    loopFlag = false;
                 }
                 else
                 {
@@ -91,6 +99,10 @@ namespace NationalParksMenuApp
                 line = Console.ReadLine();
                 file.WriteLine("  " + line + "\n");
             }
+        }
+
+        private static void Output3()
+        {
         }
     }
 }
