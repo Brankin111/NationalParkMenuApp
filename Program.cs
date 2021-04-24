@@ -27,18 +27,6 @@ namespace NationalParksMenuApp
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
-                switch (optionSelect.KeyChar)
-                {
-                    case '1':
-                        break;
-
-                    case '2':
-                        break;
-
-                    case '3':
-                        break;
-                }
-
                 //Pressing 3 breaks loop and closes program
                 if (optionSelect.KeyChar == '3')
                 {
