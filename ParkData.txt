@@ -1,4 +1,10 @@
-﻿  Alaska
+﻿  Acadia
+  ▀▀▀▀▀▀
+  Location- Maine
+  Size- 49,076.63 acres
+  Date Est- February 26, 1919
+
+  Alaska
   ▀▀▀▀▀▀
  -Denali
  -Gates of the Arctic
@@ -7,7 +13,7 @@
  -Kenai Fjords
  -Kobuk Valley
  -Lake Clark
- -Wrangell – St. Elias 
+ -Wrangell – St. Elias
 
 
   American Samoa

@@ -23,7 +23,8 @@ namespace NationalParksMenuApp
                 Console.WriteLine("  Press select an option:\n");
                 Console.WriteLine("  1 - Park list");
                 Console.WriteLine("  2 - Add park");
-                Console.WriteLine("  3 - Quit\n");
+                Console.WriteLine("  3 - Delete park");
+                Console.WriteLine("  4 - Quit\n");
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
