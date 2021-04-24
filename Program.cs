@@ -103,6 +103,7 @@ namespace NationalParksMenuApp
 
         private static void Output3()
         {
+            //Allows user to delete park.
         }
     }
 }
