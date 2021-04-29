@@ -81,7 +81,7 @@ namespace NationalParksMenuApp
             foreach (var park in _parks)
             {
                 //write the line to console window
-                Console.WriteLine($"{park.LocationName}, {park.State}");
+                Console.WriteLine($"{park.State}, {park.LocationName}");
                 Console.WriteLine();
             }
         }
@@ -93,7 +93,10 @@ namespace NationalParksMenuApp
             {
                 Console.WriteLine(" State: ");
                 var state = Console.ReadLine();
-                Console.WriteLine(" Park name: ");
+
+                Console.WriteLine();
+
+                Console.WriteLine(" Park Name: ");
                 var parkName = Console.ReadLine();
 
                 var newPark = new NationalPark();
@@ -104,8 +107,6 @@ namespace NationalParksMenuApp
 
                 file.Write(JsonConvert.SerializeObject(_parks));
             }
-
-            
         }
 
         private static void DeletePark()
