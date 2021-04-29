@@ -4,15 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace NationalParksMenuApp
 {
     internal class Program
     {
+        private const string PARKS_LIST_PATH = "NationalParks.json";
+        private static List<NationalPark> _parks;
+
         private static void Main(string[] args)
         {
             bool loopFlag = true;
             ConsoleKeyInfo optionSelect;
+            GetParksData();
 
             //Menu loop
             while (loopFlag)
@@ -28,14 +33,13 @@ namespace NationalParksMenuApp
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
-                //Pressing 3 breaks loop and closes program
                 if (optionSelect.KeyChar == '1')
                 {
                     //Output 1
                     Console.Clear();
                     Console.WriteLine("  List of National Parks:");
                     Console.WriteLine("  ───────────────────────\n");
-                    Output1();
+                    OutputAllParks();
                 }
                 else if (optionSelect.KeyChar == '2')
                 {
@@ -43,7 +47,7 @@ namespace NationalParksMenuApp
                     Console.Clear();
                     Console.WriteLine("  Add National Park to Directory:");
                     Console.WriteLine("  ───────────────────────────────\n");
-                    Output2();
+                    AddNewPark();
                 }
                 else if (optionSelect.KeyChar == '3')
                 {
@@ -71,40 +75,52 @@ namespace NationalParksMenuApp
             }
         }
 
-        private static void Output1()
+        private static void OutputAllParks()
         {
-            string line;
-
-            //Opens path to parks list txt file
-            StreamReader sr = new StreamReader("F:\\Development\\NationalParksMenuApp\\ParkData.txt");
-            line = sr.ReadLine();
-
-            //Continue to read until you reach end of file
-            while (line != null)
+            foreach (var park in _parks)
             {
                 //write the line to console window
-                Console.WriteLine(line);
-                line = sr.ReadLine();
+                Console.WriteLine($"{park.LocationName}, {park.State}");
+                Console.WriteLine();
             }
-            //close the file
-            sr.Close();
         }
 
-        private static void Output2()
+        private static void AddNewPark()
         {
-            string line;
-
             //Allows user to add new park.
-            using (StreamWriter file = new StreamWriter(@"F:\\Development\\NationalParksMenuApp\\ParkData.txt", true))
+            using (var file = new StreamWriter(PARKS_LIST_PATH))
             {
-                line = Console.ReadLine();
-                file.WriteLine("  " + line + "\n");
+                Console.WriteLine(" State: ");
+                var state = Console.ReadLine();
+                Console.WriteLine(" Park name: ");
+                var parkName = Console.ReadLine();
+
+                var newPark = new NationalPark();
+                newPark.State = state;
+                newPark.LocationName = parkName;
+
+                _parks.Add(newPark);
+
+                file.Write(JsonConvert.SerializeObject(_parks));
             }
+
+            
         }
 
         private static void Output3()
         {
             //Allows user to delete park.
+        }
+
+        /// <summary>
+        /// Loads National Parks data from a JSON file.
+        /// </summary>
+        private static void GetParksData()
+        {
+            using (var sr = new StreamReader(PARKS_LIST_PATH))
+            {
+                _parks = JsonConvert.DeserializeObject<List<NationalPark>>(sr.ReadToEnd());
+            }
         }
     }
 }
