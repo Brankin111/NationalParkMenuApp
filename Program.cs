@@ -17,6 +17,8 @@ namespace NationalParksMenuApp
         {
             bool loopFlag = true;
             ConsoleKeyInfo optionSelect;
+
+            //Reads park as soon as the program runs
             GetParksData();
 
             //Menu loop
@@ -33,9 +35,9 @@ namespace NationalParksMenuApp
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
+                //User key input determines menu selection
                 if (optionSelect.KeyChar == '1')
                 {
-                    //Output 1
                     Console.Clear();
                     Console.WriteLine("  List of National Parks:");
                     Console.WriteLine("  ───────────────────────\n");
@@ -43,7 +45,6 @@ namespace NationalParksMenuApp
                 }
                 else if (optionSelect.KeyChar == '2')
                 {
-                    //Output 2
                     Console.Clear();
                     Console.WriteLine("  Add National Park to Directory:");
                     Console.WriteLine("  ───────────────────────────────\n");
@@ -51,11 +52,10 @@ namespace NationalParksMenuApp
                 }
                 else if (optionSelect.KeyChar == '3')
                 {
-                    //Output 2
                     Console.Clear();
                     Console.WriteLine("  Delete National Park from Directory:");
                     Console.WriteLine("  ────────────────────────────────────\n");
-                    Output3();
+                    DeletePark();
                 }
                 else if (optionSelect.KeyChar == '4')
                 {
@@ -75,6 +75,7 @@ namespace NationalParksMenuApp
             }
         }
 
+        //Outputs name and locaion of each park
         private static void OutputAllParks()
         {
             foreach (var park in _parks)
@@ -85,9 +86,9 @@ namespace NationalParksMenuApp
             }
         }
 
+        //Allows user to add new park.
         private static void AddNewPark()
         {
-            //Allows user to add new park.
             using (var file = new StreamWriter(PARKS_LIST_PATH))
             {
                 Console.WriteLine(" State: ");
@@ -107,9 +108,10 @@ namespace NationalParksMenuApp
             
         }
 
-        private static void Output3()
+        private static void DeletePark()
         {
             //Allows user to delete park.
+            //Still researching....
         }
 
         /// <summary>
