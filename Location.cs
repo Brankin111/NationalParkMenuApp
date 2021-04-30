@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace NationalParksMenuApp
 {
+    //Park location properties
     public class Location
     {
         [JsonProperty("coordinates")]
@@ -15,5 +16,4 @@ namespace NationalParksMenuApp
         [JsonProperty("type")]
         public string Type { get; set; }
     }
-
 }

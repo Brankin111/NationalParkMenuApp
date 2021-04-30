@@ -1,6 +1,7 @@
 bin/
 obj/
 .vs/
+
 packages/Newtonsoft.Json.13.0.1/.signature.p7s
 packages/Newtonsoft.Json.13.0.1/LICENSE.md
 packages/Newtonsoft.Json.13.0.1/Newtonsoft.Json.13.0.1.nupkg

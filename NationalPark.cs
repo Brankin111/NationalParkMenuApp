@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NationalParksMenuApp
 {
-
+    //Park data properties.
     public class NationalPark
     {
         [JsonProperty("LocationNumber")]
