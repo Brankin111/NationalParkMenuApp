@@ -18,20 +18,22 @@ namespace NationalParksMenuApp
             bool loopFlag = true;
             ConsoleKeyInfo optionSelect;
 
-            //Reads park as soon as the program runs
+            //Reads park data as soon as the program runs
             GetParksData();
 
             //Menu loop
             while (loopFlag)
             {
+                //Menu header and options
                 Console.Clear();
                 Console.WriteLine("      National Parks Directory\n");
                 Console.WriteLine("  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
                 Console.WriteLine("  Press select an option:\n");
-                Console.WriteLine("  1 - Park list");
-                Console.WriteLine("  2 - Add park");
-                Console.WriteLine("  3 - Delete park");
-                Console.WriteLine("  4 - Quit\n");
+                Console.WriteLine("  1 - View List of Parks");
+                Console.WriteLine("  2 - Add Park");
+                Console.WriteLine("  3 - Delete Park");
+                Console.WriteLine("  4 - Edit Park");
+                Console.WriteLine("  5 - Quit\n");
                 optionSelect = Console.ReadKey();
                 Console.WriteLine("\n\n");
 
@@ -58,6 +60,13 @@ namespace NationalParksMenuApp
                     DeletePark();
                 }
                 else if (optionSelect.KeyChar == '4')
+                {
+                    Console.Clear();
+                    Console.WriteLine("  Edit National Park in Directory:");
+                    Console.WriteLine("  ────────────────────────────────\n");
+                    EditPark();
+                }
+                else if (optionSelect.KeyChar == '5')
                 {
                     loopFlag = false;
                 }
@@ -112,6 +121,12 @@ namespace NationalParksMenuApp
         private static void DeletePark()
         {
             //Allows user to delete park.
+            //Still researching....
+        }
+
+        private static void EditPark()
+        {
+            //Allows user to edit park.
             //Still researching....
         }
 
