@@ -121,13 +121,11 @@ namespace NationalParksMenuApp
         private static void DeletePark()
         {
             //Allows user to delete park.
-            //Still researching....
         }
 
         private static void EditPark()
         {
             //Allows user to edit park.
-            //Still researching....
         }
 
         /// <summary>
