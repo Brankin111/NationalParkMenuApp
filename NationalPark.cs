@@ -42,5 +42,10 @@ namespace NationalParksMenuApp
 
         [JsonProperty("Location")]
         public Location Location { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.LocationNumber}: {this.LocationName}, {this.State}";
+        }
     }
 }
