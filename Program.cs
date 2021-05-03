@@ -157,9 +157,11 @@ namespace NationalParksMenuApp
                         Console.WriteLine($"You successfully deleted '{parkToDelete.LocationName}'.");
                     }
                     break;
+
                 case ('2'):
                     // valid option, return control to main menu below
                     break;
+
                 default:
                     ShowInvalidUserInputMessage(userChoice.KeyChar.ToString());
                     break;
@@ -169,7 +171,7 @@ namespace NationalParksMenuApp
             {
                 Console.WriteLine("Hit ENTER to return to main menu");
                 Console.ReadLine();
-            }      
+            }
         }
 
         private static void LoadEditParkMenu()
@@ -199,10 +201,12 @@ namespace NationalParksMenuApp
                         returnToMainWithoutPrompt = EditPark(parkToEdit);
                     }
                     break;
+
                 case ('2'):
                     // valid option, return control to main menu below
                     returnToMainWithoutPrompt = true;
                     break;
+
                 default:
                     ShowInvalidUserInputMessage(userChoice.KeyChar.ToString());
                     break;
@@ -238,6 +242,7 @@ namespace NationalParksMenuApp
                     WriteParksToFile();
                     Console.WriteLine($"You successfully renamed '{oldName}' to '{newParkName}'.");
                     break;
+
                 case ('2'):
                     Console.WriteLine($"Current park state: {parkToEdit.State}");
                     Console.WriteLine("Enter new park state:");
@@ -247,14 +252,17 @@ namespace NationalParksMenuApp
                     WriteParksToFile();
                     Console.WriteLine($"You successfully changed the park state from '{oldState}' to '{newParkState}'.");
                     break;
+
                 case ('3'):
                     Console.Clear();
                     LoadEditParkMenu();
                     break;
+
                 case ('4'):
                     // valid option, return control to main menu below
                     returnToMainWithoutPrompt = true;
                     break;
+
                 default:
                     ShowInvalidUserInputMessage(userChoice.KeyChar.ToString());
                     break;
@@ -310,9 +318,9 @@ namespace NationalParksMenuApp
 
             if (!string.IsNullOrWhiteSpace(locNumber))
             {
-                park = _parks.Where(x => !string.IsNullOrWhiteSpace(x.LocationNumber) && x.LocationNumber.Equals(locNumber, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                park = _parks.Where(x => !string.IsNullOrWhiteSpace(x.LocationNumber) &&
+                x.LocationNumber.Equals(locNumber, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
             }
-
             return park;
         }
     }
